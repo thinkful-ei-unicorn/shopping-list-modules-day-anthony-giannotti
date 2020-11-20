@@ -1,19 +1,17 @@
 /* eslint-disable no-undef */
+const validateName = function(name) {
+  if (!name) throw new TypeError('Name must not be blank');
+};
 
-function validateName(name) {
-  if (!name) {
-    throw new TypeError('Name must not be blank');
-  }
-}
-
-function create(name) {
-  let item = {
+const create = function(name) {
+  return {
     id: cuid(),
-    name: name,
+    name,
     checked: false
   };
-  return item;
-}
+};
 
-
-export default {validateName, create};
+export default {
+  validateName,
+  create
+};
